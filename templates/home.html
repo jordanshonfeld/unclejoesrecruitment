@@ -1,0 +1,45 @@
+
+{% extends 'base_layout.html' %}
+{%block content%}
+<div class="container-fluid" style="background-color: rgb(167, 197, 254);">
+  <br>
+  <div class="container-fluid" style = "background-color: aliceblue; margin: 25px; border: 2px solid #b9f5b9;">
+      <div class="container-fluid" style = "margin: 10px; font-size: medium;">
+<h1> Welcome to the Uncle Joes Recruitment Portal </h1>
+<h2> This website will be where you submit your Uncle Joes application, keep track of your progress through the application process, and get important updates.</h2>
+{% if active_user %}
+</br>
+  <h3>Hi, {{name}}, welcome back to your portal. Jump back in here
+  </h3>
+  <form class = "home-link" action = "{% url 'applicants:app_home' %}" method = "get">
+    <button type = "submit" class = "btn-primary btn-block btn-lg">Home</button> 
+  </form>
+</br>
+  <h3> Or, logout </h3>
+  <form class = "logout-link" action = "{% url 'logout' %}" method = "post">
+    {% csrf_token %}
+    <button type = "submit" class = "btn-warning btn-block btn-lg">Logout</button> 
+  </form>
+
+
+{% else %}
+<h3> If you have an account, sign in here: </h3>
+<form action="{% url 'applicants:login' %}" method="GET">
+	<input type="submit" class = "btn-primary btn-block btn-lg" value = "Login"/>
+  {%csrf_token%}
+  </form>
+<h3>Otherwise, let's start by creating an account! Register for the Uncle Joes 2022 Application Process Here: </h3>
+<form action="applicants/register/" method="GET">
+	<input type="submit" class = "btn-primary btn-block btn-lg" value = "Register"/>
+  {%csrf_token%}
+  </form>
+
+<br>
+<br>
+<br>
+<h5> Active Joes, click <a href="{% url 'actives:login' %}">here</a></h5>
+</div>
+</div>
+</div>
+{% endif %}
+{% endblock %}

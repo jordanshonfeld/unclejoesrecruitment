@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+{%block content%}
+<!-- {% include 'actives/navigation.html' %} -->
+
+<h4>Hello lovely Joes! Welcome to the recruitment portal!</h4>
+
+<h6> If you haven't already – or you would like to edit your selections –, please select the applicants that you do NOT want to interview.</h6>
+<button type = "button" id = "show_applicants">Select Applicants</button>
+<div id = "applicant_selection">
+    {% for applicant in applicants %}
+    <div class = "applicant-button">
+        <input type="checkbox" class="form-check-input" value="{{applicant}}" id = "{{applicant.id}}" name="{{applicant.name}}">
+        <label>{{applicant}}, <strong>{{applicant.year_in_school}}</strong></label>
+    </div> 
+    {% endfor %} 
+</div>
+{% endblock %}

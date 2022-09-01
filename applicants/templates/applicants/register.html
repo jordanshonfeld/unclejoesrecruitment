@@ -1,0 +1,16 @@
+{% extends 'base_layout.html' %}
+{%block content%}
+<div class="container-fluid" style="background-color: rgb(167, 197, 254);">
+  <br>
+  <div class="container-fluid" style = "background-color: aliceblue; margin: 25px; border: 2px solid #b9f5b9;">
+      <div class="container-fluid" style = "margin: 10px; font-size: medium;">
+  <form class = "site-form" method = 'post' enctype="multipart/form-data" id = "form" action = "{% url 'applicants:register' %}">
+    {%csrf_token%}
+    {{user_form}}
+    {{applicant_form}}
+    <input type = "Submit" value = "Register">
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

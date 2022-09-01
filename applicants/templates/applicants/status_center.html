@@ -1,0 +1,92 @@
+{% extends 'base_layout.html' %}
+{%block content%}
+{% include 'applicants/navigation.html' %}
+<script>
+    document.getElementById("nav_home").style.fontWeight = "normal"
+    document.getElementById("nav_application").style.fontWeight = "normal"
+    document.getElementById("nav_status_center").style.fontWeight = "bolder"
+  </script>
+  <div class="container-fluid" style="background-color: rgb(167, 197, 254);">
+    <br>
+    <p id="app_due"><strong>Application Due: <u>September 23rd, 2022</u></strong></p>
+    <div class="container-fluid" style = "background-color: aliceblue; margin: 25px; border: 2px solid #b9f5b9;">
+        <div class="container-fluid" style = "margin: 10px; font-size: medium;">
+<h1>Welcome to your status center!</h1>
+<h3>Here, you can review your application, and see results</h3>
+<br>
+<h2>Application Status:</h2>
+{% if submitted %}
+  <p>Your application <strong class="text-success">has been submitted</strong>.</p>
+
+  <p id = "note">If you would like to review your application click here: </p>
+  <button type = 'button' id = 'show_app'>Show Application</button>
+  <div id = 'application'>
+    <h5>Question 1: <strong> As you understand it, please explain the role of Uncle Joe’s on campus. </strong></h5>
+    <p>{{app.q1response}}</p>
+    <hr>
+    <h5>Question 2:<strong> What do you want your commitment to Uncle Joe’s to look like? How would you like to get involved in the Uncle Joe’s community?</strong></h5>
+    <p>{{app.q2response}}</p>
+    <hr>
+    <h5>Question 3:<strong> What interests you about the role of a peer counselor and our organization? </strong></h5>
+    <p>{{app.q3response}}</p>
+    <hr>
+    <h5>Question 4:<strong> What are ways you open yourself up to learning about new experiences and different identities? </strong></h5>
+    <p>{{app.q4response}}</p>
+    <hr>
+    <h5>Question 5:<strong> Topics to be covered in training include – but are not limited to – sexuality, grief, depression, addiction, sexual assault, and suicide. Are there any topics you would NOT feel comfortable discussing with a client?  </strong></h5>
+    <p>{{app.q5response}}</p> 
+    <hr>
+    <h5>Scenario Question 1: <strong> What are 2 questions you would ask to explore this client’s situation?
+    </strong></h5>
+   <p> {{app.scenarioquestions}} </p>
+   <hr>
+   <h5>Scenario Question 2: <strong> What would you say to this client to help them feel heard?
+  </strong></h5>
+ <p> {{app.scenariovalidation}} </p>
+
+    
+    <button type = 'button' id = 'hide_app'>Hide Application</button>
+    <button type = 'button' id = 'edit_app'>Edit Application</button>
+  </div>
+  {% if applicant.round1 %}
+  <h2>Round 1 Status:</h2>
+  <p id = "round1"><splice style="color:green">Congratulations!</splice> You have been moved on to the <strong>first round</strong> of the Uncle Joes Interview process! This round will include an <u>over the phone</u> interview with active Joes. Please check your email for next steps and more information!</p>
+  <script>
+  document.getElementById("show_app").remove()
+  document.getElementById("application").remove()
+  document.getElementById("note").remove()
+  document.getElementById("app_due").remove()
+  </script>
+  {%endif%}
+  {% if applicant.round2 %}
+  <h2>Round 2 Status:</h2>
+  <p><splice style="color:green">Wooooohooooo! </splice> You have been moved on to <strong>Round 2</strong> of interviews! This round will include an <u>in person</u> group interview. Please check your email for next steps and more information!</p>
+  {%endif%}
+{% else %}
+  <p>You have <strong class = 'text-danger'>not yet submitted an application</strong>. Remember, the application will close on <strong>September 23rd, 2022</strong>.</p>
+{%endif%}
+</div>
+</div>
+</div>
+<script>
+      document.getElementById("show_app").addEventListener("click", show_app)
+      document.getElementById("hide_app").addEventListener("click", hide_app)
+      document.getElementById("edit_app").addEventListener("click", edit_app)
+      document.getElementById('application').style.display = "none"
+      
+      function show_app(){
+        document.getElementById('application').style.display = "block"
+        document.getElementById("show_app").style.display = "none"
+      }
+      function hide_app(){
+        document.getElementById('application').style.display = "none"
+        document.getElementById("show_app").style.display = "block"
+      }
+      function edit_app(){
+        location.href = "/applicants/application/"
+      }
+
+
+      
+</script>
+{% endblock %}

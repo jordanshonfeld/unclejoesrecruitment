@@ -1,0 +1,77 @@
+{% extends 'base_layout.html' %}
+{%block content%}
+{% include 'applicants/navigation.html' %}
+<script>
+    document.getElementById("nav_home").style.fontWeight = "normal"
+    document.getElementById("nav_application").style.fontWeight = "bolder"
+    document.getElementById("nav_status_center").style.fontweight = "normal"
+  </script>
+<div class="container-fluid" style="background-color: rgb(167, 197, 254);">
+  <br>
+  <p><strong>Application Due: <u>September 23rd, 2022</u></strong></p>
+  <div class="container-fluid" style = "background-color: aliceblue; margin: 25px; border: 2px solid #b9f5b9;">
+      <div class="container-fluid" style = "margin: 10px; font-size: medium;">
+
+{% if overdue %}
+<h1>Sorry, the application for Uncle Joes Recruitment 2022 is no longer open.</h1>
+<form action = "{% url 'applicants:app_home'%}" method = "GET">
+  <button type = "button" value = "Submit" class = "btn-primary btn-block btn-lg" id = "applynow">Home</button>
+</form>
+<script>
+      document.getElementById("applynow").onclick = function(){
+        location.href = "{%url 'applicants:app_home'%}";
+    }
+</script>
+{% else %}       
+<h1>Please fill in the following application:</h1>
+<p>Save your answers any time by clicking "Submit" at the bottom of the page. You can return to your application and edit your answers at anytime before the application is due.</p>
+<br>
+
+  <form class = "site-form" method = 'post' enctype="multipart/form-data" id = "form" action = "{% url 'applicants:application' %}">
+    {%csrf_token%}
+    <h4>As you understand it, please explain the role of Uncle Joe’s on campus. [3 sentences max]</h4>
+    {{form.q1response}}
+    <hr class = "solid" style="border-width: 3px; border-color:black">
+    <h4>What do you want your commitment to Uncle Joe’s to look like? How would you like to get involved in the Uncle Joe’s community? [200 words max]</h4>
+    {{form.q2response}} 
+    <hr class = "solid" style="border-width: 3px; border-color:black"> 
+    <h4>What interests you about the role of a peer counselor and our organization? [200 words max]
+    </h4>
+    {{form.q3response}} 
+    <hr class = "solid" style="border-width: 3px; border-color:black"> 
+    <h4>What are ways you open yourself up to learning about new experiences and different identities? [200 words max]</h4>
+    {{form.q4response}}
+    <hr class = "solid" style="border-width: 3px; border-color:black">
+    <h4>Topics to be covered in training include – but are not limited to – sexuality, grief, depression, addiction, sexual assault, and suicide. Are there any topics you would NOT feel comfortable discussing with a client? If yes, please explain. 
+      </h4>
+    {{form.q5response}}
+    <h5>We understand that some topics may be triggering, and we want to emphasize that our training team will work to support all members of the training class. As a community, we prioritize self care and support of each other when discussing sensitive topics. If you answered "Yes" above, please explain, and feel free to email us at unclejoesrecruitment@gmail.com if you have any concerns.</h5>
+    {{form.q5elaboration}}
+    <hr class = "solid" style="border-width: 3px; border-color:black">
+    <h2>*****Scenario Questions*****</h2>
+    <p style="font-size:medium">Imagine that you are an Uncle Joe's counselor. A student comes into the office and tells you that her parents are getting a divorce. She says it is a long time coming, but she still can't believe it's actually happening. She has a 9-year-old sister that she is worried about but she can't talk to either of her parents about her concerns because she doesn't want to "pick sides." Her friends here at Wash U don't really understand what she is going through, which is why she came into the office. 
+    </p>
+    <h4>What are 2 questions you would ask to explore this client’s situation?
+    </h4>
+    {{form.scenarioquestions}}
+    <h4>What would you say to this client to help them feel heard? [Answer in 2-3 sentences.]</h4>
+    {{form.scenariovalidation}}
+    <br>
+    <input type = "Submit" value = "Submit">
+</form>
+{%endif%}
+      </div>
+      </div>
+      </div>
+<script>
+      document.getElementById("id_q1response").innerHTML = "{{r1}}"
+      document.getElementById("id_q2response").innerHTML = "{{r2}}"
+      document.getElementById("id_q3response").innerHTML = "{{r3}}"
+      document.getElementById("id_q4response").innerHTML = "{{r4}}"
+      document.getElementById("id_q5response").innerHTML = "{{r5}}"
+      document.getElementById("id_q5elaboration").innerHTML = "{{r5a}}"
+      document.getElementById("id_scenarioquestions").innerHTML = "{{sQ}}"
+      document.getElementById("id_scenariovalidation").innerHTML = "{{sV}}"
+</script>
+
+{% endblock %}

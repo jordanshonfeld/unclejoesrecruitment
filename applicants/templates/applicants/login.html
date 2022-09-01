@@ -1,0 +1,27 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+
+<div class="container-fluid" style="background-color: rgb(167, 197, 254);">
+    <br>
+
+    <div class="container-fluid" style = "background-color: aliceblue; margin: 25px; border: 2px solid #b9f5b9;">
+        <div class="container-fluid" style = "margin: 10px; font-size: medium;">
+<h1>Log in</h1>
+<form class = "site-form" method = "POST" action="{% url 'applicants:login' %}">
+    {% csrf_token %}
+    {{message}}
+    {{form}}
+    {% if request.GET.next %}
+    <input type = "hidden" name = "next" value = "{{request.GET.next}}">
+    {% endif %}
+    <input type = "submit" value = "Login">
+</form>
+</div>
+</div>
+</div>
+<script>
+
+</script>
+{% endblock %}

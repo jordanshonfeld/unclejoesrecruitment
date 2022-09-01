@@ -1,0 +1,137 @@
+
+{% extends 'base_layout.html' %}
+
+{%block content%}
+{% include 'applicants/navigation.html' %}
+<script>
+    document.getElementById("nav_home").style.fontWeight = "bolder"
+    document.getElementById("nav_application").style.fontWeight = "normal"
+    document.getElementById("nav_status_center").style.fontweight = "normal"
+</script>
+<div class="container-fluid" style="background-color: rgb(167, 197, 254);">
+    <br>
+    <p><strong>Application Due: <u>September 23rd, 2022</u></strong></p>
+    <div class="container-fluid" style = "background-color: aliceblue; margin: 25px; border: 2px solid #b9f5b9;">
+        <div class="container-fluid" style = "margin: 10px; font-size: medium;">
+    <h2>{{name}},</h2>
+    <h4>Welcome to the home page of your application portal!</h4>
+    <br>
+
+    <p>Our names are Carly Bambrick and Jordan Shonfeld, and we are the 2022 - 2023 Directors for Uncle Joe's Peer Counseling and Resource Center! We have provided
+        information below on:
+        <br>
+        <ul>
+            <li><strong>What the application process will look like</strong></li>
+            <li><strong>Qualifications for what can make a person eligible/ineligible to apply for Joe's</strong></li>
+            <li><strong>Commitments we expect from our counselors</strong></li>
+        </ul> 
+    </p>
+
+    <br>
+
+    <p>
+        Please read through this document before completing our application. We know that it's a lot of information; we want to reassure you that you do not have to know all of your plans for Spring 2023 or be fully prepared to commit to Uncle Joe’s in order to apply! Applicants can drop out of the recruitment process at any time. We just want to provide you with enough information to make an informed decision about applying.  
+    </p>
+    <br>
+
+    <p>
+        If you have any questions, you can contact us at unclejoesrecruitment@gmail.com. As the Recruitment Directors, we are not involved in the selection of applicants. Any information you tell us will be kept confidential. We’re simply here to help you!
+    </p>
+    <br>
+
+
+    <p>We can’t wait to see your applications! </p>
+    <br>
+    <p>Carly Bambrick (she/her/hers) and Jordan Shonfeld (he/him/his)
+    </p>
+    <br>
+    <p>unclejoesrecruitment@gmail.com</p>
+    <hr class ="solid">
+    <h3><u>What is Uncle Joe's</u></h3>
+    <p>Uncle Joe’s Peer Counseling and Resource Center is one of WashU’s premier peer counseling resources. We are made up of highly trained undergraduate peers that have undergone over 100+ hours of training on a wide variety of topics. </p>
+    <p>For more information, check out our <a href="http://unclejoe.wustl.edu">website</a></p>
+    <hr class="solid">
+    <h3><u>What Am I Applying For?</u></h3>
+    <p>You are applying to be a part of Uncle Joe’s and the Uncle Joe’s 2022-2023 Training Class! Applicants that are accepted must complete training the following semester (Spring 2023) to become official Uncle Joe’s Counselors.</p>
+    <p>
+        Training typically occurs over 10 Saturdays from 10 am-5 pm and 10 Tuesdays from 7 pm-10 pm. We ask that all applicants make sure they are prepared for a similar time commitment. This includes, but is not limited to, not scheduling classes/extracurriculars during those times, not planning family vacations around those times, and ensuring that you are prepared mentally and physically to make that time commitment. We make exceptions for exams, medical emergencies, and other special circumstances. 
+    </p>
+    <p>
+        Last year, the first two weeks of training occurred online due to COVID restrictions, and the rest of the training occurred in person. The modality of next year’s training will depend on COVID restrictions on campus, but we hope to have in-person training. 
+    </p>
+    <hr class = "solid">
+    <h3><u>Am I Eligible to Apply?</u></h3>
+    <p>The following is not an exhaustive list of things that make an applicant eligible or ineligible for admission into Uncle Joe’s. If you have any specific questions, please reach out to the recruitment email. </p>
+    <u>Eligibility to Apply for Uncle Joe's 2022-2023 Training Class</u>
+    <ul>
+        <li>You are a first year, second year, or third year living on campus/near campus
+        </li>
+        <li>You are an active student this semester taking classes</li>
+        <li>You are attending WashU Undergrad for a minimum of two undergraduate semesters following training
+        </li>
+        <li>You have plans to return to campus/STL next semester if safety permits it
+        </li>
+    </ul>
+    <u>Ineligibility to Apply for Uncle Joe's 2022-2023 Training Class</u>
+    <ul>
+        <li>You do not intend to return to campus next semester (due to study abroad, gap semester, etc)</li>
+        <li>You are currently taking a gap semester</li>
+    </ul>
+    <hr class = "solid">
+    <h3><u>Commitments of Uncle Joe's</u></h3>
+    <ul>
+        <li>Joe's should be willing to commit to being active in the organization for as many semesters as possible. This entails: <ul>
+            <li>Taking phone duties and office duties</li>
+            <li>Attending weekly GBM</li>
+            <li>Assisting with recruitment/outreach events</li>
+            <li>Giving mock interactions to trainees during Tuesday/Saturday training</li>
+        </ul></li>
+        <li>As a volunteer organization we are entirely made up of students, and <strong>we need dedicated Joe's to help keep our organization sustainable.</strong>
+        Mant Joe's spend at least one semester on our executive board to lead internal organization, collaborate with outer groups for external events, or organize their own projects to aid the organization.</li>
+    </ul>
+    <hr class = "solid">
+    <h3><u>What Does the Application Process Look Like?</u></h3>
+    <p>The application process requires no counseling experience or knowledge and is open to anyone that meets our eligibility requirements. There is no one “type” of Joe. We encourage anyone who is interested to apply!
+    </p>
+    <ul>
+        <li><strong>First Stage:</strong> Written Applicatoin due September 23rd </li>
+        <li><strong>Second Stage: </strong> First Round Individual Interviews (phone/virtual)</li>
+        <li><strong>Third Stage:</strong> Second Round Group Interviews (in-person)</li>
+    </ul>
+    <p>Following each stage, you will be notified individually to schedule your interview if you have moved on to the next round. </p>
+    <p>Applicants will be alerted before Thanksgiving Break if they have been accepted into the Uncle Joe's’ 2022-2023 Training Class.
+    </p>
+    <p>Our application process can be competitive and rigorous. Many of our current Joe’s did not get accepted the first time they applied. On the flip side, many of our current Joe’s applied at the last minute and were humbly surprised to be accepted. Everyone’s journey looks different. If you are interested in joining our organization, we encourage you to apply regardless of whether this is your first, second, or third time.
+    </p>
+    <hr class = "solid">
+    <p>Thank you for reading all the way to the end! Not ready to apply but want to be kept up-to-date on information? Fill out our<a href="https://docs.google.com/forms/d/1YcaOAN87PcDAPCR0ZyNv5kT5eP8SgoN_QQzhPmGsR2I/edit"> interest form!</a></p>
+    <p>If you’re interested in Joe's but want to learn more about us before applying, we have a variety of events to help you get to know our organization! Here are the dates and times of our upcoming events: 
+    </p>
+    <ul>
+        <li>September 3rd- 3:30 - 5 PM - Activities Fair (Mudd Field)
+        </li>
+        <li>September 12th- 6PM - Info Session in DUC 234</li>
+        <li>September 18th - 7PM - Info Session at Ursa’s Fireside </li>
+        <li>September 23rd- 3 - 5 PM - Open Office with Recruitment Directors (Joe’s Office in Gregg basement)
+        </li>
+    </ul>
+    <p>If you are interested in peer counseling and are looking for other organizations to apply for, consider looking into the ones below:</p>
+    <a href="http://sarah.wustl.edu">SARAH - Sexual Assault Rape Anonymous Hotline</a>
+    <br>
+    <a href = "http://thesqsh.org">St. Louis Queer+ Support Hotline</a>
+</div>
+</div>
+<form action = "{% url 'applicants:application'%}" method = "GET">
+    <button type = "button" value = "Submit" class = "btn-primary btn-block btn-lg" id = "applynow">Apply Now!</button>
+</form>
+<br>
+</div>
+<script>
+    document.getElementById("applynow").onclick = function(){
+        location.href = "{%url 'applicants:application'%}";
+    }
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,13 @@
+  <nav class="navbar navbar-light" style="background-color: #b9f5b9; margin-bottom: 0px; border: black; border-width: 2px;">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{% url 'home' %}">UJ Recruitment Portal</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li id = "nav_home"><a href="{% url 'applicants:app_home' %}">Home</a></li>
+        <li id = "nav_application"><a href="{% url 'applicants:application' %}">Application</a></li>  
+        <li id = "nav_status_center"><a href="{% url 'applicants:status_center' %}">Status Center</a></li>
+        <li id = "nav_logout"><a href="{% url 'logout'%}" class = "text-muted">Log Out</a></li>
+      </ul>
+    </div>
+  </nav>
