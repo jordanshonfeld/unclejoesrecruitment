@@ -12,12 +12,10 @@ class Applicant(models.Model):
     FRESHMAN = 'FR'
     SOPHOMORE = 'SO'
     JUNIOR = 'JR'
-    SENIOR = 'SR'
     YEAR_IN_SCHOOL_CHOICES = [
         (FRESHMAN, 'Freshman'),
         (SOPHOMORE, 'Sophomore'),
         (JUNIOR, 'Junior'),
-        (SENIOR, 'Senior'),
     ]
     year_in_school = models.CharField(
         max_length=2,
@@ -78,7 +76,6 @@ class WrittenApp(models.Model):
     def get_sVresponse(self):
         return self.scenariovalidation
     
-    def edit_responses(self, r1): #make sure to put in other responses here
+    def edit_responses(self, r1):
         self.q1response = r1
         return self
-    # other helpful methods, get applicant, get responses, etc.

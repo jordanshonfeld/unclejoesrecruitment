@@ -46,11 +46,7 @@ def applicant_register(request):
             applicant.save()
             print("applicant saved")
             subject = 'Welcome to UJ Application Portal'
-            message = f'Hi {name}, \n Thank you for registering for the Uncle Joes Application.'  
-            f'Please use this platform to complete your application and check back for important updates.' 
-            f'\n For any problems that arise with the webiste please email unclejoesrecruitment@gmail.com. \n \n We look forward'
-            f'to getting to know you throughout this process! \n' 
-            f'Best, \n Carly and Jordan \n Uncle Joes Recruitment Team'
+            message = f'Hi {name}, \n\nThank you for registering for the Uncle Joes Application! Please use this platform to complete your application and check back for important updates.\n\nFor any problems that arise with the webiste please email unclejoesrecruitment@gmail.com. \n \nWe look forward to getting to know you throughout this process!\n \nBest, \nCarly and Jordan \nUncle Joes Recruitment Team'
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [email]
             send_mail( subject, message, email_from, recipient_list )
